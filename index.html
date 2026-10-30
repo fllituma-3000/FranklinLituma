@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito F.L</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="barra">
+    <img src="images.jpg" alt="Logo">
+    
+    <!-- Contenedor del carrito con menú desplegable -->
+    <div class="carrito-contenedor">
+      <button type="button" id="btnCarritoToggle" class="carrito-icono">
+        <svg class="icono-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="8" cy="21" r="1"></circle>
+          <circle cx="19" cy="21" r="1"></circle>
+          <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
+        </svg>
+        <span id="badge" class="badge">0</span>
+      </button>
+
+      <!-- Menú desplegable -->
+      <div id="carritoDropdown" class="carrito-dropdown">
+        <h3>Resumen rápido</h3>
+        <p id="dropdownVacio" class="vacio" style="font-size: 0.85rem; margin: 8px 0;">Tu carrito está vacío.</p>
+        <ul id="dropdownLista" class="lista-carrito" style="max-height: 200px; overflow-y: auto;"></ul>
+        <div id="dropdownResumen" class="resumen" style="margin-top: 10px; padding: 8px; font-size: 0.9rem;"></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <!-- CATÁLOGO -->
+    <section class="panel">
+      <h2>Catálogo</h2>
+      <div class="filtros">
+        <input type="search" id="buscar" placeholder="Buscar producto…">
+        <select id="categoria">
+          <option value="todas">Todas las categorías</option>
+          <option value="Periféricos">Periféricos</option>
+          <option value="Accesorios">Accesorios</option>
+          <option value="Pantallas">Pantallas</option>
+        </select>
+      </div>
+      <p id="sinResultados" class="vacio" hidden>No hay productos que coincidan con la búsqueda.</p>
+      <div id="catalogo" class="catalogo"></div>
+    </section>
+
+    <!-- CARRITO -->
+    <section class="panel">
+      <h2>Tu carrito</h2>
+      <p id="carritoVacio" class="vacio">Tu carrito está vacío. Agrega productos del catálogo.</p>
+      <ul id="listaCarrito" class="lista-carrito"></ul>
+
+      <label for="envio">Envío</label>
+      <select id="envio">
+        <option value="retiro">Retiro en el local</option>
+        <option value="cuenca">Envío dentro de Cuenca</option>
+        <option value="nacional">Envío nacional</option>
+      </select>
+
+      <div id="resumen" class="resumen"></div>
+
+      <div class="acciones">
+        <button type="button" id="btnConfirmar" class="principal" disabled>Confirmar pedido</button>
+        <button type="button" id="btnVaciar" class="secundario" disabled>Vaciar carrito</button>
+      </div>
+      <p id="mensaje" class="mensaje" hidden></p>
+    </section>
+  </main>
+</body>
+</html>
